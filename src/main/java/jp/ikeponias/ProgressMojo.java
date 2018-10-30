@@ -28,8 +28,7 @@ public class ProgressMojo extends AbstractMojo {
 		for (int i = 0; i <= 100; i++) {
 			System.out.print(String.format("\r["));
 			for (int j = 0; j < 10; j++) {
-				if (j < i / 10)
-					System.out.print(String.format(j < i / 10 ? "*" : "-"));
+				System.out.print(String.format(j < i / 10 ? "*" : "-"));
 			}
 			System.out.print(String.format("] %d %%", i));
 			try {
