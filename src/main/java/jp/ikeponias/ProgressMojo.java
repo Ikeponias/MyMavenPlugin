@@ -25,22 +25,16 @@ import org.apache.maven.plugins.annotations.Mojo;
 @Mojo(name = "progress")
 public class ProgressMojo extends AbstractMojo {
 	public void execute() throws MojoExecutionException {
-		// getLog().info("Hello World");
-		for (int i = 0; i < 100; i++) {
-			System.out.print(String.format("\r[", i));
+		for (int i = 0; i <= 100; i++) {
+			System.out.print(String.format("\r["));
 			for (int j = 0; j < 10; j++) {
 				if (j < i / 10)
-					System.out.print(String.format("*"));
-				else
-					System.out.print(String.format("-"));
+					System.out.print(String.format(j < i / 10 ? "*" : "-"));
 			}
-
-			System.out.print(String.format("]"));
-			System.out.print(String.format("%d %%", i));
+			System.out.print(String.format("] %d %%", i));
 			try {
 				TimeUnit.MILLISECONDS.sleep(100);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
